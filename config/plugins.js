@@ -19,8 +19,11 @@ var goodOptions = {
  */
 server.pack.register([
   {
-    plugin: require("good"), // Logging
+    plugin: require('good'), // Logging
     options: goodOptions
+  },
+  {
+    plugin: require('hapi-routes-status') // Status
   }
 ], function(err) {
   if (err) throw err;
