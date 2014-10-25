@@ -8,6 +8,12 @@ var Hapi = require('hapi')
 // Create a server with a host, port, and options
 var server = Hapi.createServer('0.0.0.0', config.port, config.hapi.options);
 
+// Export the server.
+module.exports = server;
+
+// Bootstrap Hapi Server Plugins
+require('./config/plugins');
+
 // Add the server routes
 server.route(require('./config/routes'));
 
@@ -17,6 +23,3 @@ if (!module.parent) {
     console.log('Server started at: ' + server.info.uri);
   });
 }
-
-// Export the server.
-module.exports = server;
