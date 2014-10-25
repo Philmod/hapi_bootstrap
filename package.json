@@ -1,0 +1,27 @@
+{
+  "name": "hapi_bootstrap",
+  "version": "0.0.1",
+  "description": "A bootstrap for an API built on top of hapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/lab/bin/lab -c"
+  },
+  "author": "Philmod <philippe.modard@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^2.6.0",
+    "good": "^2.4.2",
+    "hapi": "^7.1.1",
+    "hapi-routes-status": "^1.0.6",
+    "joi": "^4.7.0",
+    "lout": "^5.1.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "lab": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Philmod/hapi_bootstrap.git"
+  },
+}
