@@ -24,6 +24,9 @@ server.pack.register([
   },
   {
     plugin: require('hapi-routes-status') // Status
+  },
+  {
+    plugin: require('lout') // Documentation
   }
 ], function(err) {
   if (err) throw err;
