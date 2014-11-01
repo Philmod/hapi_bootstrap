@@ -20,4 +20,9 @@ module.exports = [
     path: '/',
     config: controller.base.index
   },
+  {
+    method: 'GET',
+    path: '/users/{userid}',
+    config: controller.users.get
+  },
 ];
