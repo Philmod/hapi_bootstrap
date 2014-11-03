@@ -11,5 +11,9 @@ module.exports = {
   port: parseInt(process.env.PORT, 10) || 3000,
   hapi: {
     options: { }
+  },
+  mongodb: {
+    host: 'localhost',
+    database: 'hapi_bootstrap_localhost'
   }
 }
