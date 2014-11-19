@@ -1,7 +1,8 @@
 /**
  * Dependencies.
  */
-var Joi = require("joi")
+var Joi = require('joi')
+  , Boom = require('boom')
   , requireDirectory = require('require-directory')
   ;
 
@@ -17,6 +18,7 @@ module.exports = {
   get: {
     handler: function(request, reply) {
       models.user.findOne({_id: request.params.userid}, function(e, user) {
+        if (e || !user) return reply(Boom.notFound('This user does not exist.'));
         reply(user);
       });
     },
