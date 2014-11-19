@@ -6,9 +6,29 @@ var Lab = require("lab")
   , it = lab.it
   , before = lab.before
   , after = lab.after
+  , mongo = require('../config/mongodb')
   ;
 
-describe("/users", function() {
+describe.only("/users", function() {
+
+  // Variables.
+  var user;
+
+  // Clean DB.
+  before(function(done) {
+    mongo.db.base.models.User.find().remove(done);
+  });
+
+  // Create a user.
+  before(function(done) {
+    mongo.db.base.models.User.create({
+      username: 'philmod'
+    }, function(e, u) {
+      expect(e).to.not.exist;
+      user = u;
+      done();
+    });
+  });
 
   describe('GET /users/{userid}', function() {
 
@@ -45,13 +65,13 @@ describe("/users", function() {
     it("successfully returns a user", function(done) {
       var options = {
         method: "GET",
-        url: "/users/superlongid"
+        url: "/users/" + user._id
       };
    
       server.inject(options, function(response) {
         var result = response.result;
         expect(response.statusCode).to.equal(200);
-        expect(result).to.have.property('id', 'superlongid');
+        expect(result).to.have.property('username', 'philmod');
         done();
       });
     });

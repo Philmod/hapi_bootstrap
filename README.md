@@ -20,3 +20,5 @@ Left to do:
   - jwt protected route
 
 Other plugins: http://hapijs.com/plugins
+
+Useful information: https://gist.github.com/agendor/9922151

@@ -15,9 +15,9 @@ var models = requireDirectory(module, '../models');
  */
 module.exports = {
   get: {
-    handler: function(request, reply){
-      reply({
-        id: request.params.userid
+    handler: function(request, reply) {
+      models.user.findOne({_id: request.params.userid}, function(e, user) {
+        reply(user);
       });
     },
     validate: {
