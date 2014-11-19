@@ -27,4 +27,18 @@ module.exports = {
       query: {}
     }
   },
+  create: {
+    handler: function(request, reply) {
+      var user = new models.user(request.payload);
+      user.save(function(e, user) {
+        if (e) return reply(e);
+        reply(user);
+      });
+    },
+    validate: {
+      payload: {
+        username: Joi.string()
+      }
+    }
+  },
 }

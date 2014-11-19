@@ -9,7 +9,7 @@ var Lab = require("lab")
   , mongo = require('../config/mongodb')
   ;
 
-describe.only("/users", function() {
+describe("/users", function() {
 
   // Variables.
   var user;
@@ -72,6 +72,27 @@ describe.only("/users", function() {
         var result = response.result;
         expect(response.statusCode).to.equal(200);
         expect(result).to.have.property('username', 'philmod');
+        done();
+      });
+    });
+
+  });
+
+  describe('POST /users', function() {
+
+    it("successfully creates a new user", function(done) {
+      var options = {
+        method: "POST",
+        url: "/users",
+        payload: {
+          username: 'username'
+        }
+      };
+   
+      server.inject(options, function(response) {
+        var result = response.result;
+        expect(response.statusCode).to.equal(200);
+        expect(result).to.have.property('username', 'username');
         done();
       });
     });
