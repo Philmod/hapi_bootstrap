@@ -15,6 +15,7 @@
     "hapi-routes-status": "^1.0.6",
     "joi": "^4.7.0",
     "lout": "^5.1.1",
+    "mongoose": "^3.8.18",
     "require-directory": "^2.0.0"
   },
   "devDependencies": {

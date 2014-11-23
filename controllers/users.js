@@ -1,8 +1,18 @@
 /**
  * Dependencies.
  */
-var Joi = require("joi");
+var Joi = require("joi")
+  , requireDirectory = require('require-directory')
+  ;
 
+/**
+ * Models.
+ */
+var models = requireDirectory(module, '../models');
+
+/**
+ * Module.
+ */
 module.exports = {
   get: {
     handler: function(request, reply){
