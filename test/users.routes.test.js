@@ -61,6 +61,20 @@ describe("/users", function() {
         done();
       });
     });
+
+    it("fails if the user doesn't exist", function(done) {
+      var options = {
+        method: "GET",
+        url: "/users/abcdef123456"
+      };
+   
+      server.inject(options, function(response) {
+        var result = response.result;
+        expect(response.statusCode).to.equal(404);
+        expect(result).to.have.property('message', 'This user does not exist.');
+        done();
+      });
+    });
   
     it("successfully returns a user", function(done) {
       var options = {
