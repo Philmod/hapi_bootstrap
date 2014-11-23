@@ -4,7 +4,7 @@
   "description": "A bootstrap for an API built on top of hapi",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -c"
+    "test": "./node_modules/lab/bin/lab -c -e TEST"
   },
   "author": "Philmod <philippe.modard@gmail.com>",
   "license": "ISC",

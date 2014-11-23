@@ -25,4 +25,9 @@ module.exports = [
     path: '/users/{userid}',
     config: controller.users.get
   },
+  {
+    method: 'POST',
+    path: '/users',
+    config: controller.users.create
+  },
 ];
